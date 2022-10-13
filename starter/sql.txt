@@ -1,0 +1,29 @@
+-- SELECT * FROM invoices;
+-- SELECT* FROM customers;
+
+Query 1 - master.csv
+SELECT * FROM invoices
+JOIN customers
+ON invoices.customer_id = customers.id;
+
+Query 2 - outdoors.csv
+SELECT * FROM invoices
+JOIN customers
+ON invoices.customer_id = customers.id
+WHERE invoices.product_category = 'Outdoors';
+
+Query 3 - garden.csv
+SELECT * FROM invoices
+JOIN customers
+ON invoices.customer_id = customers.id
+WHERE invoices.product_category = 'Garden';
+
+Query 4 - product_revenue.csv
+
+SELECT product_category, SUM(unit_price*quantity)
+FROM invoices
+GROUP BY product_category
+ORDER BY SUM DESC;
+
+
+
